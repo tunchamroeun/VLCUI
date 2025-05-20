@@ -1,6 +1,4 @@
 // swift-tools-version: 5.6
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
 let package = Package(
@@ -17,11 +15,14 @@ let package = Package(
         ),
     ],
     dependencies: [
+        .package(url: "https://github.com/tylerjonesio/vlckit-spm.git", from: "3.6.0"),
     ],
     targets: [
         .target(
             name: "VLCUI",
-            dependencies: []
+            dependencies: [
+                .product(name: "VLCKit", package: "vlckit-spm")
+            ]
         ),
     ]
 )
